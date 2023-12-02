@@ -21,7 +21,7 @@ class Part_One:
             
             game_summary.append(game)
         
-        return sum([int(x['game']) for x in game_summary if max(x.get('red', 0) or [0]) <= 12 and max(x.get('green', 0) or [0]) <= 13 and max(x.get('blue', 0)) <= 14])
+        return sum([int(x['game']) for x in game_summary if max(x.get('red', 0)) <= 12 and max(x.get('green', 0)) <= 13 and max(x.get('blue', 0)) <= 14])
 
 class Part_Two:
     def DoWork(self):
