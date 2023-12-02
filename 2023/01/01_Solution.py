@@ -10,14 +10,8 @@ class PartOne:
     def CalcCalibrationValues(self, lines: list[string]) -> int:
         lineValues = []
         for i in lines:
-            ints = []
-            for c in i:
-                if c.isdigit():
-                    ints.append(c)
-                        
-            if(len(ints) == 0): continue
-
-            lineValues.append(int(ints[0] + '' + ints[-1]))
+            ints = [str(x) for x in i if x.isdigit()]
+            if(any(ints)): lineValues.append(int(ints[0] + '' + ints[-1]))
 
         return sum(lineValues)
 
@@ -28,7 +22,6 @@ class PartTwo:
         input_file = open('Input.txt', 'r')
         return self.CalcCalibrationValues(input_file.readlines())
 
-    def CalcCalibrationValues(self, lines: list[string]) -> int:
-
+        
 
 print(PartOne().DoWork())
