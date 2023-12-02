@@ -27,7 +27,6 @@ class PartTwo:
             if(any(ints)): lineValues.append(int(ints[0] + '' + ints[-1]))
             
         return sum(lineValues)
-        
 
     def RecursiveTextDigitParse(self, text: string, start: int, end: int, lineints: []) -> []:
         for index, char in enumerate(text[start:end]):
@@ -43,8 +42,5 @@ class PartTwo:
         if(end == len(text)): return lineints
         else: return self.RecursiveTextDigitParse(text, start, (end + 1), lineints)
 
-
-                
-                
 
 print(PartTwo().DoWork())
