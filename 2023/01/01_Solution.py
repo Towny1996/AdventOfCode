@@ -5,7 +5,7 @@ class PartOne:
         input_file = open('Input.txt', 'r')
         return self.CalcCalibrationValues(input_file.readlines())
 
-    def CalcCalibrationValues(self, lines: list[string]) -> int:
+    def CalcCalibrationValues(self, lines: [string]) -> int:
         lineValues = []
         for i in lines:
             ints = [str(x) for x in i if x.isdigit()]
@@ -20,7 +20,7 @@ class PartTwo:
         input_file = open('Input.txt', 'r')
         return self.CalcCalibrationValues(input_file.readlines())
 
-    def CalcCalibrationValues(self, lines: list[string]) -> int:
+    def CalcCalibrationValues(self, lines: [string]) -> int:
         lineValues = []
         for l in lines:
             ints = self.RecursiveTextDigitParse(l, 0, 1, [])
