@@ -1,5 +1,6 @@
 import string 
 import re
+import math
 
 class PartOne:
     def DoWork(self) -> int:
@@ -18,4 +19,26 @@ class PartOne:
 
         return sum(points)
 
+class PartTwo:
+    def DoWork(self) -> int:
+        input_file = open('input.txt', 'r')
+        return self.CalcScratchCardCount(input_file.read().splitlines())
+
+    def CalcScratchCardCount(self, lines: [string]) -> int:
+        booklet = {}
+        scratch_count = 0
+
+        for line in lines:
+            card_number = int(re.findall(r'\d+', line.split(':')[0])[0])
+            matching_numbers = set(re.findall(r'\d+', line.split('|')[1])).intersection(set(re.findall(r'\d+', line.split('|')[0].split(':')[1])))
+           
+            booklet[card_number] = {'matches': len(matching_numbers), 'instances': (booklet.get(card_number, {}).get('instances', 0) + 1)}
+
+            for index, amnt in enumerate(range(1, (len(matching_numbers) + 1))):
+                index = ((index + 1) + card_number) 
+                booklet[index] = { 'instances': (booklet.get(index, {}).get('instances', 0) + booklet[card_number]['instances']) }
+            
+        return sum([x['instances'] for x in booklet.values()])
+
 print(PartOne().DoWork())
+print(PartTwo().DoWork())
