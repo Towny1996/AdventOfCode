@@ -26,7 +26,6 @@ class PartTwo:
 
     def CalcScratchCardCount(self, lines: [string]) -> int:
         booklet = {}
-        scratch_count = 0
 
         for line in lines:
             card_number = int(re.findall(r'\d+', line.split(':')[0])[0])
