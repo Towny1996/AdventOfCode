@@ -1,6 +1,4 @@
-﻿from collections import deque
-
-from Report import Report
+﻿from Report import Report
 
 def GetInput() -> [Report]:
     reports = []
