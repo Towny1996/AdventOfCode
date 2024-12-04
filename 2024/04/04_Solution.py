@@ -66,8 +66,7 @@ class PartTwo:
                     if f"{key.split('-')[0]}-{int(key.split('-')[1]) + 2}" in organised_sets:
                         check_x_partner = organised_sets[f"{key.split('-')[0]}-{int(key.split('-')[1]) + 2}"]['left_down']
                         if check_x_partner == ['M', 'A', 'S'] or check_x_partner == ['S', 'A', 'M']:
-                            if check_x_partner.index('A') == sub_value.index('A'):
-                                count += 1
+                            count += 1
 
         return count
 
