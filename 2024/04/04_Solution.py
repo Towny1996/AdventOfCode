@@ -1,20 +1,10 @@
-﻿from xml.etree.ElementTree import tostring
-
-
-def GetInput():
+﻿def GetInput():
     input = open('Input.txt', 'r').readlines()
     matrix = [[0 for x in range(len(input))] for y in range(len(input[0]) - 1)]
     for lineindex, line in enumerate(input):
         for charindex, char in enumerate(line.strip()):
             matrix[lineindex][charindex] = char
     return matrix
-
-def is_sub(sub, lst):
-    ln = len(sub)
-    for i in range(len(lst) - ln + 1):
-        if all(sub[j] == lst[i+j] for j in range(ln)):
-            return True
-    return False
 
 # BEGIN: spaghetti #
 class PartOne:
