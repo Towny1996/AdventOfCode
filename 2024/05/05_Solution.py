@@ -54,16 +54,12 @@ class PartTwo():
         return True, 0
 
     def ReorderInvalidInstruction(self, instruction: [], index: int):
-        is_valid_instruction = self.CheckValidInstruction(self.RearrangeArray(instruction, index))
+        instruction[index - 1], instruction[index] = instruction[index], instruction[index - 1]
+        is_valid_instruction = self.CheckValidInstruction(instruction)
         if not is_valid_instruction[0]:
             self.ReorderInvalidInstruction(instruction, is_valid_instruction[1])
         else:
             self.count += instruction[len(instruction) // 2]
-
-    def RearrangeArray(self, array: [], index: int) -> []:
-        if index > 0:
-            array[index - 1], array[index] = array[index], array[index - 1]
-        return array
 
 print(PartOne().DowWork())
 print(PartTwo().DoWork())
