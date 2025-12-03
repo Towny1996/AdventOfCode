@@ -3,26 +3,12 @@
 def GetInput():
     return open('Input.txt', 'r').readlines()
 
-def Part_One() -> int:
-    valid_voltages = []
-    for line in [x.rstrip() for x in GetInput()]:
-        nums = [int(line[i:i + 1]) for i in range(0, len(line), 1)]
-
-        highest = max(nums)
-        if nums.index(highest) == (len(nums) - 1):
-            highest = heapq.nlargest(2, nums)[1]
-        second = max(nums[nums.index(highest) + 1:])
-
-        valid_voltages.append(str(highest) + str(second))
-
-    return sum([int(x) for x in valid_voltages])
-
-class Part_Two():
-    def DoWorK(self) -> int:
+class Solution():
+    def DoWorK(self, wanted) -> int:
         valid_voltages = []
         for line in [x.rstrip() for x in GetInput()]:
             nums = [int(line[i:i + 1]) for i in range(0, len(line), 1)]
-            valid_voltages.append(self.GetHighestSequence(max(nums), nums, '', 11, 1))
+            valid_voltages.append(self.GetHighestSequence(max(nums), nums, '', wanted, 1))
 
         return sum([int(x) for x in valid_voltages])
 
@@ -37,5 +23,5 @@ class Part_Two():
         return self.GetHighestSequence(max(nums[nums.index(highest) + 1:]), nums[nums.index(highest) + 1:], found, wanted, 1)
 
 
-print(Part_One())
-print(Part_Two().DoWorK())
+print(Solution().DoWorK(1))
+print(Solution().DoWorK(11))
