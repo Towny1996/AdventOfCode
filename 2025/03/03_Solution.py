@@ -13,15 +13,15 @@ class Solution():
         return sum([int(x) for x in valid_voltages])
 
     def GetHighestSequence(self, highest, nums, found, wanted, index) -> []:
-        if abs(nums.index(highest) - (len(nums) - 1)) < ((wanted - 1) - (len(found) - 1)):
+        if abs(nums.index(highest) - (len(nums) - 1)) < ((wanted - 1) - (len(found))):
             return self.GetHighestSequence(heapq.nlargest(index + 1, nums)[index], nums, found, wanted, index + 1)
 
         found = found + str(highest)
-        if len(found) - 1 == wanted:
+        if len(found) == wanted:
             return found
 
         return self.GetHighestSequence(max(nums[nums.index(highest) + 1:]), nums[nums.index(highest) + 1:], found, wanted, 1)
 
 
-print(Solution().DoWorK(1))
-print(Solution().DoWorK(11))
+print(Solution().DoWorK(2))
+print(Solution().DoWorK(12))
