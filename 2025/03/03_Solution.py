@@ -37,5 +37,5 @@ class Part_Two():
         return self.GetHighestSequence(max(nums[nums.index(highest) + 1:]), nums[nums.index(highest) + 1:], found, wanted, 1)
 
 
-#print(Part_One())
+print(Part_One())
 print(Part_Two().DoWorK())
